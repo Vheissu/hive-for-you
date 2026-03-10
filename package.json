@@ -1,0 +1,21 @@
+{
+  "name": "hive-for-you",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm run dev --workspace api\" \"npm run dev --workspace web\"",
+    "dev:api": "npm run dev --workspace api",
+    "dev:web": "npm run dev --workspace web",
+    "build": "npm run build --workspace api && npm run build --workspace web && npm run build --workspace worker",
+    "typecheck": "npm run typecheck --workspace api && npm run typecheck --workspace web && npm run typecheck --workspace worker",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "vitest": "^3.2.4"
+  }
+}
