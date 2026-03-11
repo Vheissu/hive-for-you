@@ -128,7 +128,7 @@ export function FeedCard({
 
   return (
     <article
-      className="animate-rise-in rounded-xl border border-border bg-white p-4 shadow-sm"
+      className={`animate-rise-in rounded-xl border border-border bg-white p-4 shadow-sm ${menuOpen || votePopover ? 'relative z-10' : ''}`}
       ref={cardRef}
       style={{ animationDelay: `${Math.min(slot, 8) * 0.03}s` }}
     >
